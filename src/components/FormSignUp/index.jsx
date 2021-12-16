@@ -64,9 +64,9 @@ export default function FormSignUp() {
       course_module: alignment.toString(),
     };
     api
-      .post("/users/", newData, {})
+      .post("/users/", newData)
       .then((response) => {
-        window.sessionStorage.clear();
+        window.sessionStorage.clear("");
         toast.success("Usuãrio cadastrado com sucesso!!!");
         history.push("/login");
       })

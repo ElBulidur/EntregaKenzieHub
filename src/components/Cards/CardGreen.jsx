@@ -77,6 +77,7 @@ const CardGreen = ({ techs }) => {
       {techs ? (
         techs.map((tech) => (
           <Card
+            key={tech.id}
             sx={{
               display: "flex",
               margin: "2px",

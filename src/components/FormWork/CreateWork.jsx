@@ -47,10 +47,7 @@ export default function CreateWork({ id, title, description }) {
       });
   };
 
-  const updateWork = (data) => {
-    if (data["title"]) {
-    }
-  };
+  const updateWork = (data) => {};
   const deleteWork = () => {
     api
       .delete(`/users/works/${id}`, {
@@ -77,15 +74,12 @@ export default function CreateWork({ id, title, description }) {
         direction="column"
         justifyContent="center"
         alignItems="stretch"
-        nowrap
       >
         <TextField
           id={"outlined-basic"}
           label="Nome do grupo"
-          inputProps={{ defaultValue: { title } }}
           variant="outlined"
-          error={!!errors.title}
-          helperText={errors.title?.message}
+          helpertext={errors.title?.message}
           {...register("title")}
         />
         <TextareaAutosize
@@ -96,8 +90,7 @@ export default function CreateWork({ id, title, description }) {
           }
           name="description"
           style={{ width: "98%", margin: "10px 5px" }}
-          error={!!errors.description}
-          helperText={errors.description?.message}
+          helpertext={errors.description?.message}
           {...register("description")}
         />
         <Button type="submit" variant="contained">

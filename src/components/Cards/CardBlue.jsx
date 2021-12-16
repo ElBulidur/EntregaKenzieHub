@@ -70,14 +70,13 @@ const CardBlue = ({ works }) => {
       <Toolbar>
         <h3>Meus Trabalhos</h3>
         <Box sx={{ flexGrow: 1 }} />
-        <HandleModal color="#403CAA">
-          <CreateWork />
-        </HandleModal>
+        <HandleModal color="#403CAA"></HandleModal>
         {modalUpdate}
       </Toolbar>
       {works ? (
         works.map((work) => (
           <Card
+            key={work.id}
             sx={{
               display: "flex",
               margin: "2px",

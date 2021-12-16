@@ -80,21 +80,19 @@ export default function CreateTech({ id, title, status }) {
         direction="column"
         justifyContent="center"
         alignItems="stretch"
-        nowrap
       >
         <TextField
           id="outlined-basic"
           label="Nome da Tecnologia"
           variant="outlined"
           error={!!errors.title}
-          helperText={errors.title?.message}
+          helpertext={errors.title?.message}
           {...register("title")}
         />
         <Box>
           <ToggleButtonGroup
             color="primary"
             value={alignment}
-            exclusive
             onChange={handleChange}
             sx={{
               margin: "10px auto",

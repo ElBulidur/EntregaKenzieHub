@@ -22,7 +22,6 @@ export default function SignUp() {
       direction="column"
       justifyContent="center"
       alignItems="center"
-      fixed
       sx={{ minHeight: "100vh" }}
     >
       <Grid item xs={12}>
