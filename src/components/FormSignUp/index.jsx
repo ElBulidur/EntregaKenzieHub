@@ -23,7 +23,7 @@ export default function FormSignUp() {
   const history = useHistory();
 
   const [alignment, setAlignment] = useState("");
-  const handleChange = (event, newAlignment) => {
+  const handleChange = (newAlignment) => {
     setAlignment(newAlignment);
   };
 
@@ -32,7 +32,7 @@ export default function FormSignUp() {
     email: yup.string().required("E-mail obrigatório").email("E-mail inválido"),
     emailRepeat: yup
       .string()
-      .oneOf([yup.ref("email"), null], "Precisa confirmar o email"),
+      .oneOf([yup.ref("email")], "Precisa confirmar o email"),
     bio: yup
       .string()
       .required("É obrigatório o preenchimento da sua biografia"),
@@ -43,7 +43,7 @@ export default function FormSignUp() {
       .min(6, "A senha deve ter pelo menos 6 caracteres"),
     passwordRepeat: yup
       .string()
-      .oneOf([yup.ref("password"), null], "Precisa confirmar a senha"),
+      .oneOf([yup.ref("password")], "Precisa confirmar a senha"),
   });
 
   const {
@@ -56,12 +56,12 @@ export default function FormSignUp() {
 
   const addUser = (data) => {
     const newData = {
-      email: data.email,
-      password: data.password,
-      name: data.name,
-      bio: data.bio,
-      contact: data.contact,
-      course_module: alignment,
+      email: data.email.toString(),
+      password: data.password.toString(),
+      name: data.name.toString(),
+      bio: data.bio.toString(),
+      contact: data.contact.toString(),
+      course_module: alignment.toString(),
     };
     api
       .post("/users/", newData, {})
@@ -89,46 +89,45 @@ export default function FormSignUp() {
           direction="column"
           justifyContent="center"
           alignItems="stretch"
-          nowrap
         >
           <TextField
-            id="outlined-basic"
+            id="name"
             label="Nome"
             variant="outlined"
             error={!!errors.name}
-            helperText={errors.name?.message}
+            helpertext={errors.name?.message}
             {...register("name")}
           />
           <TextField
-            id="outlined-basic"
+            id="email"
             label="E-mail"
             variant="outlined"
             error={!!errors.email}
-            helperText={errors.email?.message}
+            helpertext={errors.email?.message}
             {...register("email")}
           />
           <TextField
-            id="outlined-basic"
+            id="emailRepeat"
             label="Confirmação do e-mail"
             variant="outlined"
             error={!!errors.emailRepeat}
-            helperText={errors.emailRepeat?.message}
+            helpertext={errors.emailRepeat?.message}
             {...register("emailRepeat")}
           />
           <TextField
-            id="outlined-basic"
+            id="bio"
             label="Biografia"
             variant="outlined"
             error={!!errors.bio}
-            helperText={errors.bio?.message}
+            helpertext={errors.bio?.message}
             {...register("bio")}
           />
           <TextField
-            id="outlined-basic"
+            id="contact"
             label="Contato"
             variant="outlined"
             error={!!errors.contact}
-            helperText={errors.contact?.message}
+            helpertext={errors.contact?.message}
             {...register("contact")}
           />
           <Box>
@@ -137,12 +136,8 @@ export default function FormSignUp() {
               color="primary"
               value={alignment}
               exclusive
-              error={!!errors.course_module}
-              helperText={errors.course_module?.message}
-              {...register("course_module")}
               onChange={handleChange}
             >
-              {errors.course_module?.message}
               <ToggleButton
                 sx={{ border: "none" }}
                 value="Primeiro módulo (Introdução ao Frontend)"
@@ -170,21 +165,21 @@ export default function FormSignUp() {
             </ToggleButtonGroup>
           </Box>
           <TextField
-            id="outlined-basic"
+            id="password"
             label="Senha"
             type="password"
             variant="outlined"
             error={!!errors.password}
-            helperText={errors.password?.message}
+            helpertext={errors.password?.message}
             {...register("password")}
           />
           <TextField
-            id="outlined-basic"
+            id="passwordRepeat"
             label="Confirmação de senha"
             type="password"
             variant="outlined"
             error={!!errors.passwordRepeat}
-            helperText={errors.passwordRepeat?.message}
+            helpertext={errors.passwordRepeat?.message}
             {...register("passwordRepeat")}
           />
           <Button
@@ -195,7 +190,7 @@ export default function FormSignUp() {
             Cadastrar
           </Button>
           <Typography>
-            Já tem uma conta? <Link to="/login">clique aqui</Link> para entrar.{" "}
+            Já tem uma conta? <Link to="/login">clique aqui</Link> para entrar.
           </Typography>
         </Stack>
       </form>

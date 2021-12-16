@@ -64,7 +64,7 @@ export default function FormSignIn() {
           alignItems="stretch"
         >
           <TextField
-            id="outlined-basic"
+            id="name"
             label="Nome do Usuario"
             variant="outlined"
             error={!!errors.email}
@@ -72,7 +72,7 @@ export default function FormSignIn() {
             {...register("email")}
           />
           <TextField
-            id="outlined-basic"
+            id="password"
             label="Digite sua senha"
             variant="outlined"
             type="password"
