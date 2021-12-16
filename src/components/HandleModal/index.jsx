@@ -19,7 +19,7 @@ export default function HandleModal({ children, color }) {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <>
       <Button
         style={{ background: color, color: "white" }}
         onClick={handleOpen}
@@ -35,6 +35,6 @@ export default function HandleModal({ children, color }) {
       >
         <Box sx={style}>{children}</Box>
       </Modal>
-    </div>
+    </>
   );
 }

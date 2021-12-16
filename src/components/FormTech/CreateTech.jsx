@@ -123,7 +123,7 @@ export default function CreateTech({ id, title, status }) {
     <Typography
       variant="h5"
       gutterBottom
-      component="div"
+      component="span"
       sx={{ color: "blue", padding: "10px" }}
     >
       {message}

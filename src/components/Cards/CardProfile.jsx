@@ -53,7 +53,7 @@ export default function CardProfile({ profile }) {
           </Typography>
         }
         subheader={
-          <Typography variant="p" color="white">
+          <Typography variant="span" color="white">
             {profile.course_module}
           </Typography>
         }

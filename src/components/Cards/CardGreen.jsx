@@ -30,7 +30,6 @@ const style = {
 
 const CardGreen = ({ techs }) => {
   const [openModal, setOpenModal] = useState(false);
-  const handleOpen = () => setOpenModal(true);
   const handleClose = () => setOpenModal(false);
 
   const [id, setId] = useState("");
@@ -119,7 +118,7 @@ const CardGreen = ({ techs }) => {
               }}
             >
               <CardContent sx={{ flex: "auto 0 auto", padding: "7px" }}>
-                <Typography component="div" variant="h5">
+                <Typography component="span" variant="h5">
                   {tech.title}
                 </Typography>
                 <Box
@@ -148,7 +147,7 @@ const CardGreen = ({ techs }) => {
           </Card>
         ))
       ) : (
-        <Typography sx={{ fontSize: "18px" }} component="p" variant="h5">
+        <Typography sx={{ fontSize: "18px" }} component="span" variant="h5">
           Sem trabalhos cadastrados
         </Typography>
       )}

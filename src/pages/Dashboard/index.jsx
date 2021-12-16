@@ -39,7 +39,7 @@ export default function DashBoard() {
       }}
     >
       <Grid container>
-        <Grid container xs={12} sx={{ marginBottom: "10px" }}>
+        <Grid container sx={{ marginBottom: "10px" }}>
           <ToolBar />
         </Grid>
         <Grid

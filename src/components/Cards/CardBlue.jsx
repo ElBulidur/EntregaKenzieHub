@@ -3,7 +3,7 @@ import { WorkIcon } from "../../assets/IconsSVG";
 import HandleModal from "../../components/HandleModal";
 import CreateWork from "../FormWork/CreateWork";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import {
   Divider,
@@ -30,7 +30,6 @@ const style = {
 
 const CardBlue = ({ works }) => {
   const [openModal, setOpenModal] = useState(false);
-  const handleOpen = () => setOpenModal(true);
   const handleClose = () => setOpenModal(false);
 
   const [id, setId] = useState("");
@@ -90,7 +89,6 @@ const CardBlue = ({ works }) => {
             onClick={() => updateWork(work.id, work.title, work.description)}
           >
             <Box
-              component="div"
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -120,13 +118,13 @@ const CardBlue = ({ works }) => {
               }}
             >
               <CardContent sx={{ flex: "auto 0 auto", padding: "7px" }}>
-                <Typography component="div" variant="subtitle2">
+                <Typography component="span" variant="subtitle2">
                   {work.title}
                 </Typography>
                 <Typography
                   variant="body2"
                   color="text.secondary"
-                  component="p"
+                  component="span"
                   sx={{
                     overflow: "hidden",
                   }}
@@ -147,7 +145,7 @@ const CardBlue = ({ works }) => {
           </Card>
         ))
       ) : (
-        <Typography sx={{ fontSize: "18px" }} component="p" variant="h5">
+        <Typography sx={{ fontSize: "18px" }} component="span" variant="h5">
           Sem trabalhos cadastrados
         </Typography>
       )}

@@ -8,9 +8,6 @@ import {
   TextareaAutosize,
 } from "@mui/material";
 
-import ToggleButton from "@mui/material/ToggleButton";
-import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -119,7 +116,7 @@ export default function CreateWork({ id, title, description }) {
     <Typography
       variant="h5"
       gutterBottom
-      component="div"
+      component="span"
       sx={{ color: "blue", padding: "10px" }}
     >
       {message}

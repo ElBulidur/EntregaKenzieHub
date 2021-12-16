@@ -5,16 +5,11 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
-import { ThemeProvider } from "@material-ui/core";
-import { theme } from "./styles/ThemeDefault";
-
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Toaster />
-        <App />
-      </ThemeProvider>
+      <Toaster />
+      <App />
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
